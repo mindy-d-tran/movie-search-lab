@@ -19,6 +19,9 @@ function App() {
     // setting Movie state to recieved data
     setMovie(data);
   };
+  useEffect(()=>{
+    getMovie("Clueless")
+  }, [])
 
   return (
     <div className="App">
