@@ -11,17 +11,21 @@ function App() {
   const [movie, setMovie] = useState(null);
 
   const getMovie = async (searchTerm) => {
-    //make fetch response and store response
-    const res = await fetch(`${url}&t=${searchTerm}`);
-    //Parsing JSON res into JS obj
-    const data = await res.json();
-    console.log(data);
-    // setting Movie state to recieved data
-    setMovie(data);
+    try {
+      //make fetch response and store response
+      const res = await fetch(`${url}&t=${searchTerm}`);
+      //Parsing JSON res into JS obj
+      const data = await res.json();
+      console.log(data);
+      // setting Movie state to recieved data
+      setMovie(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  useEffect(()=>{
-    getMovie("Clueless")
-  }, [])
+  useEffect(() => {
+    getMovie("Clueless");
+  }, []);
 
   return (
     <div className="App">
