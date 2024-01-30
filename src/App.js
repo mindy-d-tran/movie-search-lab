@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+
 import Form from "./components/Form";
 import MovieDisplay from "./components/MovieDisplay";
 
 function App() {
-  const [movie, setMovie] = useState(null);
-
   const apiKey = "c5a9bddf";
   const url = `http://www.omdbapi.com/?apikey=${apiKey}`;
+
+  const [movie, setMovie] = useState(null);
 
   const getMovie = async (searchTerm) => {
     //make fetch response and store response
@@ -22,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <Form moviesearch={getMovie} />
-      <MovieDisplay movie={movie}/>
+      <MovieDisplay movie={movie} />
     </div>
   );
 }
